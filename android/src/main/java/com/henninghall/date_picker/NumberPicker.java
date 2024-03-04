@@ -20,6 +20,7 @@ package com.henninghall.date_picker;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
+import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -161,7 +162,7 @@ public class NumberPicker extends LinearLayout {
     /**
      * The resource id for the default layout.
      */
-    private static final int DEFAULT_LAYOUT_RESOURCE_ID = Q.layout.number_picker;
+    private static final int DEFAULT_LAYOUT_RESOURCE_ID = Resources.getSystem().getIdentifier("number_picker", "layout", "android");// Q.layout.number_picker;
 
     /**
      * Constant for unspecified size.
@@ -635,18 +636,22 @@ public class NumberPicker extends LinearLayout {
             saveAttributeDataForStyleable(context, Q.styleable.NumberPicker,
                     attrs, attributesArray, defStyleAttr, defStyleRes);
         }
+
+        int id = Resources.getSystem().getIdentifier("NumberPicker_internalLayout", "styleable", "android");
+
         final int layoutResId = attributesArray.getResourceId(
                 Q.styleable.NumberPicker_internalLayout, DEFAULT_LAYOUT_RESOURCE_ID);
 
-        mHasSelectorWheel = (layoutResId != DEFAULT_LAYOUT_RESOURCE_ID);
+        mHasSelectorWheel = true; // (layoutResId != DEFAULT_LAYOUT_RESOURCE_ID);
 
         mHideWheelUntilFocused = attributesArray.getBoolean(
                 Q.styleable.NumberPicker_hideWheelUntilFocused, false);
 
         mSolidColor = attributesArray.getColor(Q.styleable.NumberPicker_solidColor, 0);
 
-        final Drawable selectionDivider = attributesArray.getDrawable(
-                Q.styleable.NumberPicker_selectionDivider);
+//        final Drawable selectionDivider = attributesArray.getDrawable(
+//                Q.styleable.NumberPicker_selectionDivider);
+        final Drawable selectionDivider = null;
         if (selectionDivider != null) {
             selectionDivider.setCallback(this);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -692,8 +697,11 @@ public class NumberPicker extends LinearLayout {
 
         mComputeMaxWidth = (mMaxWidth == SIZE_UNSPECIFIED);
 
-        mVirtualButtonPressedDrawable = attributesArray.getDrawable(
-                Q.styleable.NumberPicker_virtualButtonPressedDrawable);
+//        mVirtualButtonPressedDrawable = attributesArray.getDrawable(
+//                Q.styleable.NumberPicker_virtualButtonPressedDrawable);
+
+        mVirtualButtonPressedDrawable = null;
+
 
         attributesArray.recycle();
 

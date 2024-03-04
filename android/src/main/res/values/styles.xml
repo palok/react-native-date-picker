@@ -17,4 +17,16 @@
     <style name="android_native_small" parent="android_native">
         <item name="android:layout_width">40dp</item>
     </style>
+<!-- 
+    <style name="Widget.Material.NumberPicker" parent="android:Widget.NumberPicker">
+        <item name="android:internalLayout">@layout/number_picker_material</item>
+        <item name="android:solidColor">@android:color/transparent</item>
+        <item name="android:selectionDivider">@drawable/numberpicker_selection_divider</item>
+        <item name="android:selectionDividerHeight" tools:targetApi="q">2dp</item>
+        <item name="android:selectionDividersDistance">24dp</item>
+        <item name="android:internalMinWidth">32dp</item>
+        <item name="android:internalMaxHeight">90dp</item>
+        <item name="android:virtualButtonPressedDrawable">?selectableItemBackground</item>
+        <item name="android:descendantFocusability">blocksDescendants</item>
+    </style> -->
 </resources>
